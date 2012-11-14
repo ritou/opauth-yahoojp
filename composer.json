@@ -1,0 +1,23 @@
+{
+	"name": "opauth/yahoojp",
+	"description": "Yahoo!JAPAN(YConnect) strategy for Opauth",
+	"keywords": ["authentication","auth","yahoojp","yconnect"],
+	"homepage": "http://opauth.org",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Ryo Ito",
+			"email": "ritou.06@gmail.com",
+			"homepage": "https://github.com/ritou/"
+		}
+	],
+	"require": {
+		"php": ">=5.2.0",
+		"opauth/opauth": ">=0.2.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "."
+		}
+	}
+}
