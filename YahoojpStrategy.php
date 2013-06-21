@@ -77,7 +77,7 @@ class YahoojpStrategy extends OpauthStrategy{
 			);
 			$response = $this->serverPost($url, $params, $options, $headers);
 			
-			$results = json_decode($response);error_log($result);
+			$results = json_decode($response);
 			
 			if (!empty($results) && !empty($results->access_token)){
 				$userinfo = $this->userinfo($results->access_token);
