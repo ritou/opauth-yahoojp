@@ -1,8 +1,8 @@
 Opauth-Yahoojp
 =============
-[Opauth][1] strategy for Yahoo! JAPAN(YConnect).
+[Opauth][1] strategy for Yahoo! JAPAN(YConnect) v2.
 
-Implemented based on http://developer.yahoo.co.jp/yconnect/ using OAuth 2.0.
+Implemented based on https://developer.yahoo.co.jp/yconnect/v2/ using OAuth 2.0.
 
 Opauth is a multi-provider authentication framework for PHP.
 
@@ -11,7 +11,7 @@ Getting started
 1. Install Opauth-Yahoojp:
    ```bash
    cd path_to_opauth/Strategy
-   git clone git://github.com/ritou/opauth-yahoojp.git Yahoojp
+   git clone git@github.com:ritou/opauth-yahoojp.git Yahoojp
    ```
 
 2. Create a server-side application at https://e.developer.yahoo.co.jp/dashboard/
@@ -43,8 +43,10 @@ Optional parameters:
 
 References
 ----------
-- [YConnect](http://developer.yahoo.co.jp/yconnect/)
-- [YConnect Server-Side Application document](http://developer.yahoo.co.jp/yconnect/server_app/explicit/)
+- [YConnect](https://developer.yahoo.co.jp/yconnect/)
+- [YConnect v2](https://developer.yahoo.co.jp/yconnect/v2/)
+- [YConnect Server-Side Application document](https://developer.yahoo.co.jp/yconnect/server_app/explicit/)
+- [Transition from YConnect v1 to v2](https://developer.yahoo.co.jp/yconnect/v1_to_v2.html)
 
 License
 ---------
