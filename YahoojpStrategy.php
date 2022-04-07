@@ -1,7 +1,7 @@
 <?php
 /**
  * Yahoojp(YConnect) strategy for Opauth
- * based on http://developer.yahoo.co.jp/yconnect/
+ * based on https://developer.yahoo.co.jp/yconnect/v2/
  * 
  * More information on Opauth: http://opauth.org
  * 
@@ -13,7 +13,7 @@
 
 /**
  * Yahoojp(YConnect) strategy for Opauth
- * based on http://developer.yahoo.co.jp/yconnect/
+ * based on https://developer.yahoo.co.jp/yconnect/v2/
  * 
  * @package			Opauth.Yahoojp
  */
@@ -42,7 +42,7 @@ class YahoojpStrategy extends OpauthStrategy{
 	 * Auth request
 	 */
 	public function request(){
-		$url = 'https://auth.login.yahoo.co.jp/yconnect/v1/authorization';
+		$url = 'https://auth.login.yahoo.co.jp/yconnect/v2/authorization';
 		$params = array(
 			'client_id' => $this->strategy['client_id'],
 			'redirect_uri' => $this->strategy['redirect_uri'],
@@ -63,7 +63,7 @@ class YahoojpStrategy extends OpauthStrategy{
 	public function oauth2callback(){
 		if (array_key_exists('code', $_GET) && !empty($_GET['code'])){
 			$code = $_GET['code'];
-			$url = 'https://auth.login.yahoo.co.jp/yconnect/v1/token';
+			$url = 'https://auth.login.yahoo.co.jp/yconnect/v2/token';
             $options = array(
                 'http' => array(
                     'header' => "Content-type: application/x-www-form-urlencoded\r\n".
@@ -83,7 +83,7 @@ class YahoojpStrategy extends OpauthStrategy{
 				$userinfo = $this->userinfo($results->access_token);
 				$this->auth = array(
 					'provider' => 'Yahoojp',
-					'uid' => $userinfo->user_id,
+					'uid' => $userinfo->sub,
 					'info' => array(
 						'name' => $userinfo->name,
                         'email' => $userinfo->email,
@@ -130,7 +130,7 @@ class YahoojpStrategy extends OpauthStrategy{
 	 * @return array Parsed JSON results
 	 */
 	private function userinfo($access_token){
-		$userinfo = $this->serverGet('https://userinfo.yahooapis.jp/yconnect/v1/attribute', array('schema' => 'openid', 'access_token' => $access_token), null, $headers);
+		$userinfo = $this->serverGet('https://userinfo.yahooapis.jp/yconnect/v2/attribute', array('access_token' => $access_token), null, $headers);
 		if (!empty($userinfo)){
 			return json_decode($userinfo);
 		}
